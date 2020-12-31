@@ -1,0 +1,27 @@
+public class BouncingBall 
+{
+	public static int bouncingBall(double h, double bounce, double window)
+	{
+        int result = 0;
+		if (h <= 0 || bounce >= 1 || bounce <= 0 || window >= h)
+        {
+	        return -1;
+        }
+        else 
+        {
+            while (h > window)
+            {
+                if (h > window)
+                {
+                    result++;
+                }
+                h *= bounce;
+                if (h > window)
+                {
+                    result++;
+                }
+            }
+            return result;
+		}
+	}
+}
