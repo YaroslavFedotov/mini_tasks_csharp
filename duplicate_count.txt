@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+
+public class Kata
+{
+    public static int DuplicateCount(string str)
+    {
+        List<char> candidates = new List<char>();
+        List<char> repeated = new List<char>();
+        foreach (char symbol in str)
+        {
+            Char.ToUpper(symbol);
+            if (candidates.Contains(Char.ToUpper(symbol)) && !repeated.Contains(Char.ToUpper(symbol)))
+            {
+                repeated.Add(Char.ToUpper(symbol));
+            }
+            else 
+            {
+                candidates.Add(Char.ToUpper(symbol));
+            }
+        }
+        return repeated.Count;
+    }
+}
