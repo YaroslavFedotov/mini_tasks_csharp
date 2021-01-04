@@ -1,0 +1,37 @@
+using System;
+
+public class NthSeries {
+	public static string seriesSum (int n) {
+        const int sequenceStep = 3;
+		int divisor = 4;
+        double resultSum = 0.0;
+        if (n == 0)
+        {
+            return "0.00";
+        }
+        else
+        {
+            for (int i = 1; i <= n; i++)
+            {
+                if (i == 1)
+                {
+                    resultSum = 1;
+                }
+                else
+                {
+                    resultSum += 1.0 / (divisor + sequenceStep * (i - 2));
+                }
+            }
+            if (Math.Round(resultSum, 2).ToString().Length == 1) 
+            { 
+                return Math.Round(resultSum, 2).ToString() + ".00";
+            }
+            else
+            {
+                return (Math.Round(resultSum, 2).ToString().Length == 4) ? 
+                    Math.Round(resultSum, 2).ToString() : 
+                    Math.Round(resultSum, 2).ToString() + "0";
+            }
+        }
+	}
+}
