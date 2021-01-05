@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public static class Kata
+{
+    public static string Order(string words)
+    {
+        if (words == "") 
+        {
+            return words;
+        }
+        else 
+        {
+            string[] wordsArr = words.Split(' ');
+            List<string> wordsList = new List<string>();
+            string result = "";
+            int corrent;
+            for (int i = 0; i < wordsArr.Length; i++)
+            {
+                for (int j = 0; j < wordsArr.Length; j++)
+                {
+                    int.TryParse(string.Join("", wordsArr[j].Where(c => char.IsDigit(c))), out corrent);
+                    if (corrent == i + 1)
+                    {
+                        wordsList.Add(wordsArr[j]);
+                        break;
+                    }
+                }
+            }
+            foreach(string word in wordsList)
+            {
+                if (wordsList[wordsList.Count - 1].Equals(word))
+                {
+                    result += word;
+                }
+                else
+                {
+                    result += word + " ";
+                }
+            }
+            return result;
+        }
+    }
+}
