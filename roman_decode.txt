@@ -5,13 +5,12 @@ public class RomanDecode
 {
     public static int Solution(string roman)
 	{
-	    var RomanNumberMap = new Dictionary<char, short>() 
+	    var RomanNumberMap = new Dictionary<char, int>() 
             { {'I', 1}, {'V', 5}, {'X', 10}, {'L', 50}, {'C', 100}, {'D', 500}, {'M', 1000} };
-        int result = 0
-		short prev = 0;
+        int result = 0, curr = 0, prev = 0;
         foreach(char symbol in roman) 
         {
-            int curr = RomanNumberMap[symbol];
+            curr = RomanNumberMap[symbol];
             result += curr != prev ? curr > prev ? curr - prev * 2 : curr : curr;
             prev = curr;
         }
