@@ -1,0 +1,29 @@
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+    public static int GetUnique(IEnumerable<int> numbers)
+    {
+        int count = 0;
+        foreach(int item in numbers)
+        {
+            foreach(int curr in numbers)
+            {
+                if (item == curr)
+                {
+                    count++;
+                } 
+            }
+            if (count > 1)
+            {
+                count = 0;
+            }
+            else
+            {
+                return item;
+            }
+        }
+		return null;
+    }
+}
