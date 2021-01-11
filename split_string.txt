@@ -1,0 +1,31 @@
+using System.Collections.Generic;
+public class SplitString
+{
+  public static string[] Solution(string str)
+  {
+    int countr = 1; 
+    string buff = "";
+    List<string> result = new List<string>();
+    foreach (char curr in str)
+    {
+      if (countr % 3 == 0)
+      {
+        countr = 1;
+        result.Add(buff);
+        buff = "";
+      }
+      buff += curr;
+      countr++;
+    }
+    if (buff != "")
+    {
+      result.Add(buff);
+    }
+    if (result[result.Count - 1].Length % 2 != 0)
+    {
+      result.Insert(result.Count - 1, result[result.Count - 1] + "_");
+      result.RemoveAt(result.Count - 1);
+    }
+    return result.ToArray();
+  }
+}
