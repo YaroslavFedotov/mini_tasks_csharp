@@ -1,0 +1,8 @@
+public class Kata
+{
+  public static string CreatePhoneNumber(int[] numbers)
+  {
+    string str = string.Join("", numbers);
+    return "(" + str.Substring(0, 3) + ") " + str.Substring(3, 3) + "-" + str.Substring(6, 4);
+  }
+}
