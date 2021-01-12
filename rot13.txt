@@ -1,0 +1,25 @@
+using System;
+
+public class Kata
+{
+    public static string Rot13(string message)
+    {
+        for(int i = 0; i < message.Length; i++) { message = message
+		    .Insert(i + 1, "abcdefghijklmnopqrstuvwxyz"
+			.Contains(Char.ToLower(message[i])) ? "abcdefghijklmnopqrstuvwxyz"
+			.IndexOf(Char.ToLower(message[i])) + 13 > "abcdefghijklmnopqrstuvwxyz"
+			.Length - 1 ? char
+			.IsLower(message[i]) ? "abcdefghijklmnopqrstuvwxyz"[("abcdefghijklmnopqrstuvwxyz"
+			.IndexOf(Char.ToLower(message[i])) + 13) % "abcdefghijklmnopqrstuvwxyz"
+			.Length].ToString() : Char
+			.ToUpper("abcdefghijklmnopqrstuvwxyz"[("abcdefghijklmnopqrstuvwxyz".IndexOf(Char
+			.ToLower(message[i])) + 13) % "abcdefghijklmnopqrstuvwxyz".Length])
+			.ToString(): char
+			.IsLower(message[i]) ? "abcdefghijklmnopqrstuvwxyz"["abcdefghijklmnopqrstuvwxyz"
+			.IndexOf(Char.ToLower(message[i])) + 13].ToString() : Char
+			.ToUpper("abcdefghijklmnopqrstuvwxyz"["abcdefghijklmnopqrstuvwxyz".IndexOf(Char
+			.ToLower(message[i])) + 13]).ToString() : message[i].ToString()).Remove(i, 1); };
+        return message;
+        //I was bored :)
+    }
+}
