@@ -1,0 +1,49 @@
+using System;
+
+public class Line
+    {
+        public static string Tickets(int[] peopleInLine)
+        { 
+          int twentyFive = 0, fifty = 0;
+          foreach(int curr in peopleInLine)
+          {
+            if (curr == 25)
+            {
+              twentyFive++;
+            }
+            if (curr == 50)
+            {
+              if (twentyFive < 1)
+              {
+                return "NO";
+              }
+              else
+              {
+                fifty++;
+                twentyFive--;
+              }
+            }
+            if (curr == 100)
+            {
+              if (twentyFive < 1 || fifty < 1)
+              {
+                if (twentyFive < 3)
+                {
+                  return "NO";
+                }
+                else 
+                {
+                  twentyFive -= 3;
+                }
+              }
+              else 
+              {
+                twentyFive--;
+                fifty--;
+              }
+            }
+            
+          } 
+          return "YES";
+        }
+    }
