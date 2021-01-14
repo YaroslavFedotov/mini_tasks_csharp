@@ -1,0 +1,25 @@
+public class Kata
+{
+    public static int[] MoveZeroes(int[] arr)
+    {
+        int count = 0, temp = 0;
+        int[] result = new int[arr.Length];
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] != 0)
+            {
+                result[temp] = arr[i];
+                temp++;
+            }
+            else
+            {
+                count++;
+            }
+        }
+        for (int i = count; i > 0; i--)
+        {
+            result[arr.Length - i] = 0;
+        }
+        return result;
+    }
+}
