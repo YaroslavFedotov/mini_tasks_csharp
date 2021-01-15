@@ -1,0 +1,49 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+public class SumOfDivided
+{
+	public static string sumOfDivided(int[] lst) 
+    {
+        HashSet<int> primeDivisors = new HashSet<int>();
+        List<int> sortedList = new List<int>();
+        string result = "";
+        int sum = 0;
+        foreach (int curr in lst)
+        {
+            for (int i = 2; i <= Math.Abs(curr); i++)
+            {
+                if (Math.Abs(curr) % i == 0 && IsPrime(i))
+                {
+                    primeDivisors.Add(i); 
+                }
+            }
+        }
+        sortedList = new List<int>(primeDivisors);
+        sortedList.Sort();
+        foreach (int prime in sortedList)
+        {
+            foreach (int curr in lst)
+            {
+                if (Math.Abs(curr) % prime == 0)
+                {
+                    sum += curr;
+                }
+            }
+            result += "(" + prime + " " + sum + ")";
+            sum = 0;
+        }
+        return result;
+    }
+  
+    private static bool IsPrime(long n)
+    {
+        bool prime = n == 2 || ( n != 1 && n % 2 != 0 );
+        for (long i = 3; prime && i * i <= n; i += 2 )
+        {
+            prime = n % i != 0;
+        }
+        return prime;
+    }
+}
