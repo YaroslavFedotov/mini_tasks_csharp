@@ -1,0 +1,23 @@
+using System;
+using System.Numerics;
+
+public class SumFct
+{
+    public static BigInteger perimeter(BigInteger n) 
+    {
+        return Fib(n + 1) * 4;
+    }
+  
+    static BigInteger Fib(BigInteger n)
+    {
+        BigInteger b = 1, a, tmp, sum;
+        for (BigInteger i = 0; i < n; i++)
+        {
+            tmp = a;
+            a = b;
+            b += tmp;
+            sum += a;
+        }
+        return sum;
+    }
+}
