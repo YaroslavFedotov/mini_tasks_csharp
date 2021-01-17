@@ -1,0 +1,12 @@
+using System;
+using System.Numerics;
+public static class Kata
+{
+    public static string sumStrings(string a, string b)
+    {
+        BigInteger ai, bi;
+        BigInteger.TryParse(a, out ai);
+        BigInteger.TryParse(b, out bi);
+        return (ai + bi).ToString();
+    }
+}
