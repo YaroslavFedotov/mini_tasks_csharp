@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+public class Sudoku
+{
+    public static bool ValidateSolution(int[][] board)
+    {
+        HashSet<int> check;
+        for (int i = 0; i < 9; i += 3)
+        {
+            for (int j = 0; j < 9; j += 3)
+            {
+                check = new HashSet<int>()
+                {
+                    board[i][j], board[i][j + 1], board[i][j + 2],
+                    board[i + 1][j], board[i + 1][j + 1], board[i + 1][j + 2], 
+                    board[i + 2][j], board[i + 2][j + 1], board[i + 2][j + 2]
+                };
+                if (check.Count != 9)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
