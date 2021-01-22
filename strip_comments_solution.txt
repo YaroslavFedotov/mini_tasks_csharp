@@ -1,0 +1,29 @@
+using System.Linq;
+using System.Text.RegularExpressions;
+public class StripCommentsSolution
+{
+    public static string StripComments(string text, string[] commentSymbols)
+    {
+        string[] strings = text.Split('\n');
+        string result = string.Empty; 
+        foreach (string currStr in strings)
+        {
+            if (commentSymbols.Any(currStr.Contains))
+            {
+                foreach (string currCom in commentSymbols)
+                {
+                    if (currStr.Contains(currCom))
+                    {
+                        result += currStr.Substring(0, currStr.IndexOf(currCom))
+						.TrimEnd(' ') + "\n";
+                    }
+                }
+            }
+            else 
+            {
+                result += currStr.TrimEnd(' ') + "\n";
+            }
+        }
+        return result.Remove(result.Length - 1);
+    }
+}
