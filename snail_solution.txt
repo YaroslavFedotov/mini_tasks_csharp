@@ -1,0 +1,99 @@
+using System.Collections.Generic;
+public class SnailSolution
+{
+   public static int[] Snail(int[][] array)
+   {
+        bool firstFold = false;
+        bool searchDuration = false;
+        int reductionInterval = 3;
+        int kneeСounter = 0;
+        int kneeLength = array[0].Length;
+        List<int> result = new List<int>();
+        int i = 0;
+        int j = 0;
+        if (kneeLength == 0)
+        {
+            return result.ToArray();
+        }
+        if (kneeLength == 1)
+        {
+            result.Add(array[0][0]);
+            return result.ToArray();
+        }
+        while (kneeLength >= 0)
+        {
+            for (int с = 0; с < kneeLength - 1; с++)
+            {
+                result.Add(array[i][j++]);
+            }
+            kneeСounter++;
+            if (kneeСounter == reductionInterval)
+            {
+                kneeLength--;
+                kneeСounter = 0;
+            }
+            if (!searchDuration && kneeLength == 1)
+            {
+                searchDuration = true;
+                kneeLength++;
+
+            }
+            for (int с = 0; с < kneeLength - 1; с++)
+            {
+                result.Add(array[i++][j]);
+            }
+            kneeСounter++;
+            if (kneeСounter == reductionInterval)
+            {
+                kneeLength--;
+                kneeСounter = 0;
+            }
+            if (!searchDuration && kneeLength == 1)
+            {
+                searchDuration = true;
+                kneeLength++;
+
+            }
+            for (int с = kneeLength - 1; с > 0; с--)
+            {
+                result.Add(array[i][j--]);
+            }
+            kneeСounter++;
+            if (kneeСounter == reductionInterval)
+            {
+                if (!firstFold && reductionInterval == 3)
+                {
+                    reductionInterval--;
+                    firstFold = true;
+                }
+                kneeLength--;
+                kneeСounter = 0;
+            }
+            if (!searchDuration && kneeLength == 1)
+            {
+                searchDuration = true;
+                kneeLength++;
+
+            }
+            for (int с = kneeLength - 1; с > 0; с--)
+            {
+                result.Add(array[i--][j]);
+            }
+            kneeСounter++;
+            if (kneeСounter == reductionInterval)
+            {
+                kneeLength--;
+                kneeСounter = 0;
+            }
+            if (!searchDuration && kneeLength == 1)
+            {
+                searchDuration = true;
+                kneeLength++;
+
+            }
+
+        }
+        result.RemoveAt(result.Count - 1);
+        return result.ToArray();
+    }
+}
